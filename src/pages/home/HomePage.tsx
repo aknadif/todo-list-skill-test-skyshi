@@ -42,7 +42,7 @@ const HomePage = () => {
                         isLoading={addActivity?.isLoading}
                         onClick={handleAddActivity}
                         type={'add'}
-                        data-cy={'activity-add-button'}/>
+                        dataCy={'activity-add-button'}/>
                 </div>
 
                 {home?.isLoading &&

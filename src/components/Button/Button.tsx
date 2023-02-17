@@ -9,7 +9,8 @@ const Button = ({
     onClick = () => {},
     type,
     disabled = false,
-    isLoading = false
+    isLoading = false,
+    dataCy = '',
 }: ButtonProps) => {
     let
         text,
@@ -38,6 +39,7 @@ const Button = ({
     }
     return (
         <button
+            data-cy={dataCy}
             onClick={onClick}
             disabled={disabled}
             className={cx(bgColor, textColor, 'w-[150px] h-[54px] rounded-full opacity-100 hover:opacity-90 ' +

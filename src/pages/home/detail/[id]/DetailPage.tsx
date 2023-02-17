@@ -85,7 +85,7 @@ const DetailPage = () => {
                         </div>
                         {isTitleEdit ? (
                             <input
-                                data-cy={'todo-title-input'}
+                                data-cy={'todo-title'}
                                 className={cx('text-4xl font-bold ' +
                                     'focus:border-b-4 py-2 focus:border-bluePrimary focus:outline-none')}
                                 defaultValue={title === ''?
@@ -104,7 +104,7 @@ const DetailPage = () => {
                                 onClick={handleIsTitleEdit}
                                 title={title === ''?
                                     paramsTitle: title}
-                                data-cy={'todo-title'}/>
+                                dataCy={'todo-title'}/>
                         )}
                         <div
                             onClick={handleIsTitleEdit}
@@ -127,7 +127,7 @@ const DetailPage = () => {
                         }
                         <Button
                             type={'add'}
-                            data-cy={'todo-add-state'}
+                            dataCy={'todo-add-button'}
                             onClick={handleOpen}
                         />
                     </div>
@@ -156,21 +156,6 @@ const DetailPage = () => {
                                 onDelete={() => handleShowConfirm(item.title, Number(item.id))}
                             />
                         ))}
-
-
-                        {/*{dataDetailSort.sort((a: any, b: any) => a.title.localeCompare(b.title))*/}
-                        {/*    .map((item:GetDetailResponse, index:number) => (*/}
-                        {/*        <TodoItem*/}
-                        {/*            onCheck={handleActived}*/}
-                        {/*            key={index}*/}
-                        {/*            id={Number(item.id)}*/}
-                        {/*            title={item.title}*/}
-                        {/*            priority={item.priority}*/}
-                        {/*            isActive={item.is_active}*/}
-                        {/*            onEdit={handleEdit}*/}
-                        {/*            onDelete={() => handleShowConfirm(item.title, Number(item.id))}*/}
-                        {/*        />*/}
-                        {/*    ))}*/}
                     </div>
                 )}
 

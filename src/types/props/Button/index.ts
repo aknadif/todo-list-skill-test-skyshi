@@ -3,4 +3,5 @@ export interface ButtonProps {
     type: 'add' | 'save' | 'cancel' | 'delete';
     disabled?: boolean;
     isLoading?: boolean;
+    dataCy?: string;
 }

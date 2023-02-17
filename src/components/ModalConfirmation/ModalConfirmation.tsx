@@ -15,7 +15,7 @@ const ModalConfirmation = ({
 }:ModalConfirmationProps) => {
     return (
         <Transition appear show={isOpen} as={Fragment}>
-            <Dialog as="div" className={cx('relative z-10')} onClose={onClose}>
+            <Dialog as="div" className={cx('relative z-10')} data-cy={'activity-item-delete-button'} onClose={onClose}>
                 <Transition.Child
                     as={Fragment}
                     enter="ease-out duration-300"
@@ -29,7 +29,7 @@ const ModalConfirmation = ({
                 </Transition.Child>
 
                 <div
-                    data-cy={'modal-add'}
+                    data-cy={'activity-item-delete-button'}
                     className={cx('fixed inset-0 overflow-y-auto')}>
                     <div className={cx('flex min-h-full items-center justify-center p-4 text-center')}>
                         <Transition.Child
@@ -64,13 +64,13 @@ const ModalConfirmation = ({
                                     <div className={cx('mt-4 flex justify-between items-center gap-6')}>
                                         <Button
                                             onClick={onClose}
-                                            data-cy={'modal-delete-cancel-button'}
+                                            dataCy={'modal-delete-cancel-button'}
                                             type={'cancel'}/>
                                         <Button
                                             isLoading={isLoading}
                                             disabled={disabled}
                                             onClick={onSubmit}
-                                            data-cy={'modal-delete-confirm-button'}
+                                            dataCy={'activity-item-delete-button'}
                                             type={'delete'}/>
                                     </div>
                                 </div>

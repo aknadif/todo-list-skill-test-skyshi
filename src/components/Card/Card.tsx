@@ -20,9 +20,10 @@ const Card = ({
                     pathname: `/home/detail/${id}`,
                     query: {id, title}}}>
                 <div
+                    data-cy={'activity-item'}
                     className={cx('w-[235px] h-[234px]')}>
                     <span className={cx('text-blackPrimary font-bold text-lg')}
-                        data-cy={'activity-item-title'}>
+                        data-cy={'activity-title'}>
                         {title}
                     </span>
                 </div>
@@ -35,7 +36,7 @@ const Card = ({
                 <div
                     onClick={onDelete}
                     className={cx('cursor-pointer hover:scale-105')}
-                    data-cy={'activity-delete-button'}>
+                    data-cy={'activity-item-delete-button'}>
                     <CImage
                         src={'/Assets/Icons/IC-trash.webp'}
                         alt={'icon trash'}
