@@ -41,9 +41,10 @@ const Button = ({
         <button
             data-cy={dataCy}
             onClick={onClick}
-            disabled={disabled || isLoading}
             className={cx(bgColor, textColor, 'w-[150px] h-[54px] rounded-full opacity-100 hover:opacity-90 ' +
-                'flex justify-center items-center gap-2 ', {'hover:opacity-100 cursor-not-allowed': disabled})}>
+                'flex justify-center items-center gap-2 ', {'hover:opacity-100 cursor-not-allowed': disabled})}
+            disabled={disabled || isLoading}
+        >
             {isLoading && <Loading />}
             {icon && !isLoading &&
             <CImage
