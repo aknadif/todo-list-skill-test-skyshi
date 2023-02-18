@@ -15,7 +15,7 @@ const DropdownSort = ({
                     <Listbox.Button
                         data-cy={'todo-sort-button'}
                         className={cx('relative' +
-                            'hover:scale-105 cursor-pointer')}>
+                            'hover:scale-105 cursor-pointer z-30')}>
                         <span>
                             <CImage
                                 src={'/Assets/Icons/IC-sort.webp'}

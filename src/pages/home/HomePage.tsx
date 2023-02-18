@@ -41,7 +41,9 @@ const HomePage = () => {
                 onClose={handleAlertClose}
                 customClass={'absolute bottom-10 right-10 z-40'}
             />
-            <div className={cx('px-52 py-11')}>
+            <div
+                data-cy={'activity-empty-state'}
+                className={cx('px-52 py-11')}>
                 <div className={cx('flex justify-between items-center mb-12')}>
                     <TextHeader title={'Activity'} dataCy={'activity-title'}/>
                     <Button

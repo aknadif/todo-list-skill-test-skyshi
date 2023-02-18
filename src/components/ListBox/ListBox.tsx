@@ -57,6 +57,7 @@ const ListBox = ({
                                 color:string
                             }, priorityIdx:number) => (
                                 <Listbox.Option
+                                    data-cy={'modal-add-priority-item'}
                                     key={priorityIdx}
                                     className={cx('relative cursor-pointer select-none py-3.5 border-b ' +
                                         'border-whitePrimary pl-10 pr-4')}
