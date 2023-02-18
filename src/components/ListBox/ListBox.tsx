@@ -23,7 +23,7 @@ const ListBox = ({
                 <div className={cx('mt-1')}>
                     <Listbox.Button>
                         <div
-                            data-cy={'modal-add-priority-button'}
+                            data-cy={'modal-add-priority-dropdown'}
                             className={cx('relative w-[205px] h-[52px] border border-whitePrimary ' +
                             'cursor-default rounded-lg bg-white py-3 pl-3 pr-10 text-left ' +
                             'active:bg-whitePrimary sm:text-sm')}>
@@ -48,7 +48,6 @@ const ListBox = ({
                         leaveTo="opacity-0"
                     >
                         <Listbox.Options
-                            data-cy={'modal-add-priority-dropdown'}
                             className={cx('absolute z-20 mt-1 w-[205px] rounded-md ' +
                             'bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 ' +
                             'focus:outline-none sm:text-sm')}>
