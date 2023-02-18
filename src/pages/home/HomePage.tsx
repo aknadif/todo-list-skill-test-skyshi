@@ -51,7 +51,7 @@ const HomePage = () => {
                         type={'add'}
                         dataCy={'activity-add-button'}/>
                 </div>
-                
+
                 {home?.isLoading ?
                     <div
                         data-cy={'todo-loading-state'}

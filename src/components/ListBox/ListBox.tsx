@@ -21,9 +21,10 @@ const ListBox = ({
             </span>
             <Listbox value={selected} onChange={setSelected}>
                 <div className={cx('mt-1')}>
-                    <Listbox.Button>
+                    <Listbox.Button
+                        data-cy={'modal-add-priority-dropdown'}
+                    >
                         <div
-                            data-cy={'modal-add-priority-dropdown'}
                             className={cx('relative w-[205px] h-[52px] border border-whitePrimary ' +
                             'cursor-default rounded-lg bg-white py-3 pl-3 pr-10 text-left ' +
                             'active:bg-whitePrimary sm:text-sm')}>

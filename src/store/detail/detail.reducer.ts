@@ -4,7 +4,6 @@ import * as process from 'process';
 
 
 const API_URL = process.env.BASE_API_URL;
-const TODO_URL = process.env.TODO_URL;
 
 const initialState:DetailInitialState = {
     detail:{
@@ -52,7 +51,7 @@ export const resolveGetDetail = createAsyncThunk(
     'detail/resolveGetDetail',
     async (id:number, {rejectWithValue}) => {
         try {
-            return await fetch(`${API_URL}/${TODO_URL}=${id}`,{
+            return await fetch(`${API_URL}/activity-groups/${id}`,{
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -143,7 +142,7 @@ export const detailSlice = createSlice({
         builder.addCase(resolveGetDetail.fulfilled, (state: any, {payload}) => {
             state.detail.isLoading = false;
             state.detail.isSuccess = true;
-            state.detail.data = payload?.data;
+            state.detail.data = payload?.todo_items;
         });
         builder.addCase(resolveGetDetail.rejected, (state, {payload}: any) => {
             state.detail.isLoading = false;

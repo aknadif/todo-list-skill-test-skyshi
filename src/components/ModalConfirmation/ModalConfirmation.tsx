@@ -15,7 +15,9 @@ const ModalConfirmation = ({
 }:ModalConfirmationProps) => {
     return (
         <Transition appear show={isOpen} as={Fragment}>
-            <Dialog as="div" className={cx('relative z-10')} data-cy={'activity-item-delete-button'} onClose={onClose}>
+            <Dialog
+                data-cy={'modal-delete'}
+                as="div" className={cx('relative z-10')} onClose={onClose}>
                 <Transition.Child
                     as={Fragment}
                     enter="ease-out duration-300"
@@ -29,7 +31,6 @@ const ModalConfirmation = ({
                 </Transition.Child>
 
                 <div
-                    data-cy={'modal-delete'}
                     className={cx('fixed inset-0 overflow-y-auto')}>
                     <div className={cx('flex min-h-full items-center justify-center p-4 text-center')}>
                         <Transition.Child

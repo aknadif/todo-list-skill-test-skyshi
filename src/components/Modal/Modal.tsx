@@ -134,7 +134,7 @@ const Modal = ({
                                             dataCy={'modal-add-save-button'}
                                             type={'save'}
                                             isLoading={isLoading}
-                                            disabled={isLoading || data.title === undefined}/>
+                                            disabled={data.title === undefined || data.title === ''}/>
                                     </div>
                                 </div>
                             </Dialog.Panel>
