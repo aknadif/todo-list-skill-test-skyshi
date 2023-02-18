@@ -21,22 +21,25 @@ const ListBox = ({
             </span>
             <Listbox value={selected} onChange={setSelected}>
                 <div className={cx('mt-1')}>
-                    <Listbox.Button
-                        data-cy={'modal-add-priority-button'}
-                        className={cx('relative w-[205px] h-[52px] border border-whitePrimary ' +
-                        'cursor-default rounded-lg bg-white py-2 pl-3 pr-10 text-left ' +
-                        'active:bg-whitePrimary sm:text-sm')}>
-                        <span className={cx('absolute top-5 left-3 flex ' +
+                    <Listbox.Button>
+                        <div
+                            data-cy={'modal-add-priority-button'}
+                            className={cx('relative w-[205px] h-[52px] border border-whitePrimary ' +
+                            'cursor-default rounded-lg bg-white py-3 pl-3 pr-10 text-left ' +
+                            'active:bg-whitePrimary sm:text-sm')}>
+                            <span className={cx('absolute top-4 left-3 flex ' +
                              'items-center pl-3 w-[14px] h-[14px] rounded-full' +
                              '', selected.color)} />
-                        <span className={cx('pl-7 block truncate')}>{selected.name}</span>
-                        <span className={cx('pointer-events-none absolute inset-y-0 right-4 flex items-center pr-2')}>
-                            <CImage
-                                src={'/Assets/Icons/IC-up.webp'}
-                                alt={'icon up'}
-                                width={12}
-                                height={6} />
-                        </span>
+                            <span className={cx('pl-7 block truncate')}>{selected.name}</span>
+                            <span className={cx('pointer-events-none absolute inset-y-0 ' +
+                                'right-4 flex items-center pr-2')}>
+                                <CImage
+                                    src={'/Assets/Icons/IC-up.webp'}
+                                    alt={'icon up'}
+                                    width={12}
+                                    height={6} />
+                            </span>
+                        </div>
                     </Listbox.Button>
                     <Transition
                         as={Fragment}

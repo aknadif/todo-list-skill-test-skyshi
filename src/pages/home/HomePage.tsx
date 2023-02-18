@@ -1,6 +1,6 @@
 import React from 'react';
 import cx from 'classnames';
-import {Button, Card, CImage, Loading, ModalConfirmation, TextHeader} from '@/components';
+import {Alert, Button, Card, CImage, Loading, ModalConfirmation, TextHeader} from '@/components';
 import useHome from '@/hooks/home/useHome';
 import {ActivityRes} from '@/types/res/activity';
 
@@ -9,9 +9,11 @@ const HomePage = () => {
         data:{
             home,
             addActivity,
+            isDeleteSuccess,
             confirmationState
         },
         method:{
+            handleAlertClose,
             handleAddActivity,
             handleGetAllActivity,
             handleDeleteActivity,
@@ -25,7 +27,7 @@ const HomePage = () => {
     }, []);
 
     return (
-        <>
+        <div className={cx('relative')}>
             <ModalConfirmation
                 isLoading={confirmationState?.isLoading}
                 disabled={confirmationState?.isLoading}
@@ -34,6 +36,11 @@ const HomePage = () => {
                 onClose={handleCancelConfirmation}
                 onSubmit={()=>handleDeleteActivity(confirmationState.id)}
                 title={confirmationState.title} />
+            <Alert
+                isOpen={isDeleteSuccess}
+                onClose={handleAlertClose}
+                customClass={'absolute bottom-10 right-10 z-40'}
+            />
             <div className={cx('px-52 py-11')}>
                 <div className={cx('flex justify-between items-center mb-12')}>
                     <TextHeader title={'Activity'} dataCy={'activity-title'}/>
@@ -79,7 +86,7 @@ const HomePage = () => {
                     </div>
                 )}
             </div>
-        </>
+        </div>
     );
 };
 

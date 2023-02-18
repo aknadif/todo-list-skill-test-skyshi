@@ -35,7 +35,8 @@ const initialState: HomeInitialStateProps = {
         isShow: false,
         title: '',
         id: 0
-    }
+    },
+    isDeleteSuccess: false
 };
 
 // Get All Activity
@@ -179,13 +180,16 @@ export const homeSlice = createSlice({
         builder.addCase(resolveDeleteActivity.pending, (state) => {
             state.confirmationState.isLoading = true;
             state.confirmationState.isError = false;
+            state.isDeleteSuccess = false;
         });
         builder.addCase(resolveDeleteActivity.fulfilled, (state: any, {payload}) => {
             state.confirmationState.isLoading = false;
             state.confirmationState.isSuccess = true;
+            state.isDeleteSuccess = true;
             state.confirmationState.data = payload?.data;
         });
         builder.addCase(resolveDeleteActivity.rejected, (state, {payload}: any) => {
+            state.isDeleteSuccess = false;
             state.confirmationState.isLoading = false;
             state.confirmationState.isError = true;
             state.confirmationState.errorMessage = payload?.message || 'Something went wrong';
@@ -196,11 +200,15 @@ export const homeSlice = createSlice({
     reducers: {
         setConfirmationState: (state, {payload}) => {
             state.confirmationState = payload;
+        },
+        setDeleteSuccess: (state) => {
+            state.isDeleteSuccess = !state.isDeleteSuccess;
         }
     },
 });
 
 export const {
+    setDeleteSuccess,
     setConfirmationState
 } = homeSlice.actions;
 export default homeSlice.reducer;

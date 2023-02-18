@@ -44,6 +44,7 @@ const initialState:DetailInitialState = {
     },
     isTitleEdit: false,
     title: '',
+    isDeleteSuccess: false
 };
 
 // Get list detail
@@ -186,15 +187,18 @@ export const detailSlice = createSlice({
         builder.addCase(resolveDeleteDetail.pending, (state) => {
             state.detailDelete.isLoading = true;
             state.detailDelete.isError = false;
+            state.isDeleteSuccess = false;
         });
         builder.addCase(resolveDeleteDetail.fulfilled, (state: any, {payload}) => {
             state.detailDelete.isLoading = false;
             state.detailDelete.isSuccess = true;
+            state.isDeleteSuccess = true;
         });
         builder.addCase(resolveDeleteDetail.rejected, (state, {payload}: any) => {
             state.detailDelete.isLoading = false;
             state.detailDelete.isError = true;
             state.detailDelete.errorMessage = payload?.message || 'Something went wrong';
+            state.isDeleteSuccess = false;
         });
 
     },
@@ -226,6 +230,9 @@ export const detailSlice = createSlice({
         setTitle: (state, {payload}) => {
             state.title = payload;
         },
+        setIsDeleteSuccess: (state) => {
+            state.isDeleteSuccess = !state.isDeleteSuccess;
+        }
     },
 });
 
@@ -236,5 +243,6 @@ export const {
     setDetailEdit,
     setIsTitleEdit,
     setDetailDelete,
+    setIsDeleteSuccess,
 } = detailSlice.actions;
 export default detailSlice.reducer;

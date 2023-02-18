@@ -6,6 +6,7 @@ import {
     resolveDeleteActivity,
     resolveGetAllActivity,
     setConfirmationState,
+    setDeleteSuccess,
 } from '@/store/home/home.reducer';
 
 const useHome = () => {
@@ -13,7 +14,8 @@ const useHome = () => {
     const {
         home,
         addActivity,
-        confirmationState
+        isDeleteSuccess,
+        confirmationState,
     } = useSelector((state: any) => state.home);
 
     // handle get all activity
@@ -50,13 +52,19 @@ const useHome = () => {
         }));
     };
 
+    const handleAlertClose = () => {
+        dispatch(setDeleteSuccess());
+    };
+
     return {
         data:{
             home,
             addActivity,
+            isDeleteSuccess,
             confirmationState
         },
         method:{
+            handleAlertClose,
             handleAddActivity,
             handleGetAllActivity,
             handleDeleteActivity,

@@ -67,74 +67,75 @@ const Modal = ({
                         >
                             <Dialog.Panel className={cx('w-[830px] h-[403px] transform ' +
                                 'rounded-2xl bg-white text-left align-middle shadow-xl transition-all')}>
-                                <div
-                                    data-cy={type === 'add' ? 'modal-add-title' : 'modal-edit-title'}
-                                    className={cx('flex justify-between items-center p-6 ')}>
-                                    <span
-                                        data-cy={'modal-add-title'}
-                                        className={cx('text-blackPrimary font-semibold text-lg')}>
-                                        {type === 'add' ? 'Tambah List Item' : 'Edit List Item'}
-                                    </span>
+                                <div data-cy={'modal-add'}>
                                     <div
-                                        className={cx('cursor-pointer hover:scale-105')}
-                                        data-cy={'modal-add-close-button'}
-                                        onClick={onClose}>
-                                        <CImage
-                                            src={'/Assets/Icons/IC-x.webp'}
-                                            alt={'Icon X'}
-                                            width={24}
-                                            height={24}/>
-                                    </div>
-                                </div>
-
-                                <div className={cx('relative flex items-center')}>
-                                    <div className={cx('flex-grow border-t border-whitePrimary')}></div>
-                                </div>
-
-                                <div className={cx('px-6 pt-8 pb-6')}>
-                                    <div className={cx('mb-6')}>
-                                        <label
-                                            data-cy={'modal-add-name-title'}
-                                            htmlFor="name"
-                                            className={cx('text-xs font-semibold ' +
-                                                'text-blackPrimary uppercase')}>
-                                            Nama List Item
-                                        </label>
-                                        <input
-                                            data-cy={'modal-add-name-input'}
-                                            type="text"
-                                            id="name"
-                                            defaultValue={value}
-                                            onChange={handleChange}
-                                            className={cx('mt-2 h-[52px] caret-bluePrimary bg-white outline-none ' +
-                                                'border border-whitePrimary text-blackPrimary text-sm ' +
-                                                'rounded-lg block w-full p-2.5 focus:border-bluePrimary ')}
-                                            placeholder="Tambahkan nama activity" required />
-                                    </div>
-                                    <div>
-                                        <ListBox
-                                            setSelected={setSelected}
-                                            prioritys={prioritys}
-                                            selected={selected}
-                                        />
+                                        className={cx('flex justify-between items-center p-6 ')}>
+                                        <span
+                                            data-cy={'modal-add-title'}
+                                            className={cx('text-blackPrimary font-semibold text-lg')}>
+                                            {type === 'add' ? 'Tambah List Item' : 'Edit List Item'}
+                                        </span>
+                                        <div
+                                            className={cx('cursor-pointer hover:scale-105')}
+                                            data-cy={'modal-add-close-button'}
+                                            onClick={onClose}>
+                                            <CImage
+                                                src={'/Assets/Icons/IC-x.webp'}
+                                                alt={'Icon X'}
+                                                width={24}
+                                                height={24}/>
+                                        </div>
                                     </div>
 
-                                </div>
+                                    <div className={cx('relative flex items-center')}>
+                                        <div className={cx('flex-grow border-t border-whitePrimary')}></div>
+                                    </div>
 
-                                <div className={cx('relative flex items-center')}>
-                                    <div className={cx('flex-grow border-t border-whitePrimary')}></div>
-                                </div>
+                                    <div className={cx('px-6 pt-8 pb-6')}>
+                                        <div className={cx('mb-6')}>
+                                            <label
+                                                data-cy={'modal-add-name-title'}
+                                                htmlFor="name"
+                                                className={cx('text-xs font-semibold ' +
+                                                    'text-blackPrimary uppercase')}>
+                                                Nama List Item
+                                            </label>
+                                            <input
+                                                data-cy={'modal-add-name-input'}
+                                                type="text"
+                                                id="name"
+                                                defaultValue={value}
+                                                onChange={handleChange}
+                                                className={cx('mt-2 h-[52px] caret-bluePrimary bg-white outline-none ' +
+                                                    'border border-whitePrimary text-blackPrimary text-sm ' +
+                                                    'rounded-lg block w-full p-2.5 focus:border-bluePrimary ')}
+                                                placeholder="Tambahkan nama activity" required />
+                                        </div>
+                                        <div>
+                                            <ListBox
+                                                setSelected={setSelected}
+                                                prioritys={prioritys}
+                                                selected={selected}
+                                            />
+                                        </div>
 
-                                <div className={cx('mt-4 flex justify-end items-center px-6 opacity-90')}>
-                                    <Button
-                                        onClick={()=>{
-                                            // @ts-ignore
-                                            onSave(data.title === '' ? value :data.title, selected.value);
-                                        }}
-                                        dataCy={'modal-add-save-button'}
-                                        type={'save'}
-                                        isLoading={isLoading}
-                                        disabled={isLoading}/>
+                                    </div>
+
+                                    <div className={cx('relative flex items-center')}>
+                                        <div className={cx('flex-grow border-t border-whitePrimary')}></div>
+                                    </div>
+
+                                    <div className={cx('mt-4 flex justify-end items-center px-6 opacity-90')}>
+                                        <Button
+                                            onClick={()=>{
+                                                // @ts-ignore
+                                                onSave(data.title === '' ? value :data.title, selected.value);
+                                            }}
+                                            dataCy={'modal-add-save-button'}
+                                            type={'save'}
+                                            isLoading={isLoading}
+                                            disabled={isLoading || data.title === ''}/>
+                                    </div>
                                 </div>
                             </Dialog.Panel>
                         </Transition.Child>

@@ -1,6 +1,16 @@
 import React from 'react';
 import cx from 'classnames';
-import {Button, CImage, DropdownSort, Loading, Modal, ModalConfirmation, TextHeader, TodoItem} from '@/components';
+import {
+    Alert,
+    Button,
+    CImage,
+    DropdownSort,
+    Loading,
+    Modal,
+    ModalConfirmation,
+    TextHeader,
+    TodoItem
+} from '@/components';
 import useDetail from '@/hooks/detail/useDetail';
 import {GetDetailResponse} from '@/types/res/detail';
 
@@ -18,6 +28,7 @@ const DetailPage = () => {
             isTitleEdit,
             paramsTitle,
             detailDelete,
+            isDeleteSuccess,
         },
         method:{
             handleOpen,
@@ -36,6 +47,7 @@ const DetailPage = () => {
             handleUpdateTodo,
             handleShowConfirm,
             handleIsTitleEdit,
+            handleIsDeleteSuccess,
         }
     } = useDetail();
     React.useEffect(() => {
@@ -44,7 +56,7 @@ const DetailPage = () => {
 
     let dataDetailSort = detail?.data?.slice();
     return (
-        <>
+        <div className={cx('relative')}>
             <Modal
                 isLoading={false}
                 onSave={handleAddTodo}
@@ -69,6 +81,12 @@ const DetailPage = () => {
                 title={detailDelete.title}
                 onClose={handleCancel}
                 onSubmit={handleDelete}
+            />
+            <Alert
+                type={'todo'}
+                isOpen={isDeleteSuccess}
+                onClose={handleIsDeleteSuccess}
+                customClass={'absolute bottom-10 right-10 z-40'}
             />
             <div className={cx('px-52 py-11 transition')}>
                 <div className={cx('flex justify-between items-center mb-12')}>
@@ -172,7 +190,7 @@ const DetailPage = () => {
                     </div>
                 )}
             </div>
-        </>
+        </div>
     );
 };
 

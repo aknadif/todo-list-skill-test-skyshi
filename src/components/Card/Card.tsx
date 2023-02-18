@@ -22,7 +22,9 @@ const Card = ({
                     query: {id, title}}}>
                 <div
                     className={cx('w-[235px] h-[234px]')}>
-                    <span className={cx('text-blackPrimary font-bold text-lg')}>
+                    <span
+                        data-cy={'activity-item-title'}
+                        className={cx('text-blackPrimary font-bold text-lg')}>
                         {title}
                     </span>
                 </div>

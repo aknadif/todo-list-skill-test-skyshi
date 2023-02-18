@@ -27,5 +27,6 @@ export interface HomeInitialStateProps {
         isShow: boolean,
         id: number,
         title: string
-    }
+    },
+    isDeleteSuccess: boolean
 }

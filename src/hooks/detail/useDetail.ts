@@ -9,6 +9,7 @@ import {
     setDetailAdd,
     setDetailDelete,
     setDetailEdit,
+    setIsDeleteSuccess,
     setIsTitleEdit,
     setTitle,
 } from '@/store/detail/detail.reducer';
@@ -43,6 +44,7 @@ const useDetail = () => {
         detailEdit,
         isTitleEdit,
         detailDelete,
+        isDeleteSuccess,
     } = useSelector((state: any) => state.detail);
 
     const filterData = (filter: 'asc' | 'desc' | 'newest' | 'oldest' | 'unfinished', data:[]) => {
@@ -183,6 +185,10 @@ const useDetail = () => {
             });
     };
 
+    const handleIsDeleteSuccess = () => {
+        dispatch(setIsDeleteSuccess());
+    };
+
     return {
         data:{
             id,
@@ -196,6 +202,7 @@ const useDetail = () => {
             isTitleEdit,
             paramsTitle,
             detailDelete,
+            isDeleteSuccess,
         },
         method:{
             handleEdit,
@@ -214,6 +221,7 @@ const useDetail = () => {
             handleUpdateTodo,
             handleShowConfirm,
             handleIsTitleEdit,
+            handleIsDeleteSuccess,
         }
     };
 };

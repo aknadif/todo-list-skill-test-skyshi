@@ -36,4 +36,5 @@ export interface DetailInitialState {
     },
     isTitleEdit: boolean;
     title: string;
+    isDeleteSuccess: boolean;
 }

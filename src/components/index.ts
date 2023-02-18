@@ -1,4 +1,5 @@
 import Card from '@/components/Card';
+import Alert from '@/components/Alert';
 import Modal from '@/components/Modal';
 import CImage from '@/components/CImage';
 import Button from '@/components/Button';
@@ -12,6 +13,7 @@ import ModalConfirmation from '@/components/ModalConfirmation';
 
 export {
     Card,
+    Alert,
     Modal,
     CImage,
     Navbar,
