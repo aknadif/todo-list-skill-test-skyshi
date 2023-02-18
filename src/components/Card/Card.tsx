@@ -13,6 +13,7 @@ const Card = ({
 }:CardProps) => {
     return (
         <div
+            data-cy={'activity-item'}
             className={cx('relative  rounded-xl shadow-lg drop-shadow p-6 ' +
                 'cursor-pointer hover:scale-105 transition')}>
             <Link
@@ -20,10 +21,8 @@ const Card = ({
                     pathname: `/home/detail/${id}`,
                     query: {id, title}}}>
                 <div
-                    data-cy={'activity-item'}
                     className={cx('w-[235px] h-[234px]')}>
-                    <span className={cx('text-blackPrimary font-bold text-lg')}
-                        data-cy={'activity-title'}>
+                    <span className={cx('text-blackPrimary font-bold text-lg')}>
                         {title}
                     </span>
                 </div>
@@ -32,10 +31,10 @@ const Card = ({
             <div className={cx('flex justify-between items-center w-5/6 text-grayPrimary ' +
                 'absolute bottom-4 z-20')}>
                 <span className={cx('font-medium text-sm')}
-                    data-cy={'activity-item-title'}>{formatDate(date!)}</span>
+                    data-cy={'activity-item-date'}>{formatDate(date!)}</span>
                 <div
                     onClick={onDelete}
-                    className={cx('cursor-pointer hover:scale-105')}
+                    className={cx('cursor-pointer hover:scale-105 z-30')}
                     data-cy={'activity-item-delete-button'}>
                     <CImage
                         src={'/Assets/Icons/IC-trash.webp'}

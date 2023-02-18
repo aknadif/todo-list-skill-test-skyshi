@@ -54,7 +54,6 @@ const Modal = ({
                 </Transition.Child>
 
                 <div
-                    data-cy={'modal-add'}
                     className={cx('fixed inset-0 overflow-y-auto')}>
                     <div className={cx('flex min-h-full items-center justify-center p-4 text-center')}>
                         <Transition.Child
@@ -68,7 +67,9 @@ const Modal = ({
                         >
                             <Dialog.Panel className={cx('w-[830px] h-[403px] transform ' +
                                 'rounded-2xl bg-white text-left align-middle shadow-xl transition-all')}>
-                                <div className={cx('flex justify-between items-center p-6 ')}>
+                                <div
+                                    data-cy={type === 'add' ? 'modal-add-title' : 'modal-edit-title'}
+                                    className={cx('flex justify-between items-center p-6 ')}>
                                     <span
                                         data-cy={'modal-add-title'}
                                         className={cx('text-blackPrimary font-semibold text-lg')}>
@@ -130,7 +131,7 @@ const Modal = ({
                                             // @ts-ignore
                                             onSave(data.title === '' ? value :data.title, selected.value);
                                         }}
-                                        data-cy={'modal-add-save-button'}
+                                        dataCy={'modal-add-save-button'}
                                         type={'save'}
                                         isLoading={isLoading}
                                         disabled={isLoading}/>

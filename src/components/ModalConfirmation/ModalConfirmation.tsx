@@ -29,7 +29,6 @@ const ModalConfirmation = ({
                 </Transition.Child>
 
                 <div
-                    data-cy={'activity-item-delete-button'}
                     className={cx('fixed inset-0 overflow-y-auto')}>
                     <div className={cx('flex min-h-full items-center justify-center p-4 text-center')}>
                         <Transition.Child
@@ -43,7 +42,9 @@ const ModalConfirmation = ({
                         >
                             <Dialog.Panel className={cx('w-[490px] h-[355px] transform ' +
                                 'rounded-2xl bg-white text-left align-middle shadow-xl transition-all')}>
-                                <div className={cx('flex justify-center items-center gap-4 ' +
+                                <div
+                                    data-cy={'modal-delete'}
+                                    className={cx('flex justify-center items-center gap-4 ' +
                                     'flex-col p-14')}>
                                     <div>
                                         <CImage
@@ -70,7 +71,7 @@ const ModalConfirmation = ({
                                             isLoading={isLoading}
                                             disabled={disabled}
                                             onClick={onSubmit}
-                                            dataCy={'activity-item-delete-button'}
+                                            dataCy={'modal-delete-confirm-button'}
                                             type={'delete'}/>
                                     </div>
                                 </div>

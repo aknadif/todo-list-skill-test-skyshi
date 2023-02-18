@@ -36,7 +36,7 @@ const HomePage = () => {
                 title={confirmationState.title} />
             <div className={cx('px-52 py-11')}>
                 <div className={cx('flex justify-between items-center mb-12')}>
-                    <TextHeader title={'Activity'} data-cy={'activity-title'}/>
+                    <TextHeader title={'Activity'} dataCy={'activity-title'}/>
                     <Button
                         disabled={addActivity?.isLoading}
                         isLoading={addActivity?.isLoading}

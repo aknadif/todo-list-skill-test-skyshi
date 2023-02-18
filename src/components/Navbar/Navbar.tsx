@@ -8,7 +8,7 @@ const Navbar = () => {
             data-cy={'activity-header-background'}>
             <span className={cx('text-whitePrimary uppercase font-bold text-2xl')}
                 data-cy={'header-title'}>
-                Todo List App
+                TO DO LIST APP
             </span>
         </div>
     );
