@@ -47,7 +47,9 @@ const ListBox = ({
                         leaveFrom="opacity-100"
                         leaveTo="opacity-0"
                     >
-                        <Listbox.Options className={cx('absolute z-20 mt-1 w-[205px] rounded-md ' +
+                        <Listbox.Options
+                            data-cy={'modal-add-priority-dropdown'}
+                            className={cx('absolute z-20 mt-1 w-[205px] rounded-md ' +
                             'bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 ' +
                             'focus:outline-none sm:text-sm')}>
                             {prioritys.map((priority:{

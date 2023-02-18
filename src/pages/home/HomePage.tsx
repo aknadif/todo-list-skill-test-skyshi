@@ -73,7 +73,7 @@ const HomePage = () => {
                     </div>
                 )}
 
-                {!home?.isLoading && home?.data?.length === 0 && (
+                {home?.data?.length === 0 && (
                     <div
                         onClick={handleAddActivity}
                         data-cy={'activity-empty-state'}
