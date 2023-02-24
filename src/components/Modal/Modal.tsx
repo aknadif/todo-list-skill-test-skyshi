@@ -38,6 +38,7 @@ const Modal = ({
             priority: selected.value
         });
     };
+
     return (
         <Transition appear show={isOpen} as={Fragment}>
             <Dialog as="div" className={cx('relative z-10')} onClose={onClose}>
@@ -130,11 +131,15 @@ const Modal = ({
                                             onClick={()=>{
                                                 // @ts-ignore
                                                 onSave(data.title === '' ? value :data.title, selected.value);
+                                                setData(
+                                                    {
+                                                        title: '',
+                                                        priority: 'very-high'});
                                             }}
                                             dataCy={'modal-add-save-button'}
                                             type={'save'}
                                             isLoading={isLoading}
-                                            disabled={data.title === undefined || data.title === ''}/>
+                                            disabled={ data.title === undefined || data.title === ''}/>
                                     </div>
                                 </div>
                             </Dialog.Panel>

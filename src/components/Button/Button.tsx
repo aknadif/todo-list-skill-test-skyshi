@@ -43,7 +43,7 @@ const Button = ({
             onClick={onClick}
             className={cx(bgColor, textColor, 'w-[150px] h-[54px] rounded-full opacity-100 hover:opacity-90 ' +
                 'flex justify-center items-center gap-2 ', {'hover:opacity-100 cursor-not-allowed': disabled})}
-            disabled={disabled || isLoading}
+            disabled={disabled}
         >
             {isLoading && <Loading />}
             {icon && !isLoading &&
